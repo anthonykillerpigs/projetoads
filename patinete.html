@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>E-SCOOTER GO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style/paticss.css">
+
+<script>
+if(localStorage.getItem("logado") !== "true"){
+    window.location.href = "login.html";
+}else{
+    document.documentElement.style.display="block";
+}
+</script>
+
+<style>
+html{display:none;}
+</style>
+
+</head>
+
+<body>
+
+<div class="logo-topo" onclick="atualizarSistema()" style="cursor:pointer;">
+<img src="images/logo.png" alt="E-Scooter Go">
+</div>
+
+<header class="topbar">
+
+<div class="logo">E-SCOOTER GO</div>
+
+<button class="btn-sair" onclick="logout()">
+Sair
+</button>
+
+</header>
+
+<main class="container">
+
+<!-- CARDS DE RESUMO -->
+
+<div class="cards-resumo">
+
+<div class="card-resumo">
+<h3>Total Patinetes</h3>
+<p id="totalPatinetes">0</p>
+</div>
+
+<div class="card-resumo">
+<h3>Ganhos Hoje</h3>
+<p id="ganhoHoje">R$0</p>
+</div>
+
+<div class="card-resumo">
+<h3>Ganhos Semana</h3>
+<p id="ganhoSemana">R$0</p>
+</div>
+
+<div class="card-resumo">
+<h3>Manutenção</h3>
+<p id="gastoManutencao">R$0</p>
+</div>
+
+</div>
+
+<section class="status">
+
+<h3>Status dos Patinetes</h3>
+
+<div>
+
+<span class="status-badge badge-livre">
+● Disponível: <b id="qtdLivre">0</b>
+</span>
+
+<span class="status-badge badge-locado">
+● Alugado: <b id="qtdLocado">0</b>
+</span>
+
+<span class="status-badge badge-manutencao">
+● Manutenção: <b id="qtdManutencao">0</b>
+</span>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="grid" id="grid"></div>
+
+</section>
+
+</main>
+
+<div class="modal" id="modal">
+<div class="modal-content" id="modalContent"></div>
+</div>
+
+<div class="admin-float">
+
+<button onclick="toggleAdminMenu()">⚙</button>
+
+<div class="admin-float-menu" id="adminFloatMenu">
+
+<button onclick="adicionarPatinetes()">➕ Adicionar</button>
+
+<button onclick="removerPatinete()">➖ Remover</button>
+
+<button onclick="window.location.href='relatorio.html'">📊 Relatório</button>
+
+</div>
+
+<div id="loadingTela">
+
+<div class="loading-box">
+
+<div class="spinner"></div>
+
+<p>Atualizando sistema...</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/patijs.js"></script>
+
+</body>
+</html>
